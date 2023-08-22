@@ -1,0 +1,20 @@
+﻿@using SanalMarket.Data;
+@model Product
+
+@{
+    ViewBag.Title = "Ürün Silme Sayfası";
+}
+
+<h1>Ürün Silme Sayfasına Hoşgeldiniz...</h1>
+
+<h3 class="mt-5">@Model.Name adlı ürünü silmek istediğinize emin misiniz?</h3>
+
+<form method="post">
+    <label asp-for="Name">Ürün Adı</label>
+    <input asp-for="Name" type="text" class="form-control" value="" />
+
+    <div class="mt-3">
+        <button class="btn btn-danger w-25">Sil</button>
+        <a asp-action="Index" class="btn btn-secondary w-25">Vazgeç</a>
+    </div>
+</form>

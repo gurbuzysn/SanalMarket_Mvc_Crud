@@ -1,0 +1,44 @@
+﻿@using SanalMarket.Data;
+@model List<Product>
+
+@{
+    ViewBag.Title = "Ürün Listesi";
+}
+
+<h1>Ürün Listesi</h1>
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <td>Ürün Adı</td>
+            <td>Fiyatı</td>
+            <td>Stok Adedi</td>
+            <td>Fotografı</td>
+            <td>
+
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (Product product in Model)
+            {
+                <tr>
+                    <td class="">@product.Name</td>
+                    <td>@product.Price</td>
+                    <td>@product.StockQuantity</td>
+                    <td>
+                        <img src="~/img/@product.ImageName" alt="Resim Yok" height="50px" width="50px" />
+                    </td>
+
+
+                    <td>
+                        <a asp-action="Remove" asp-route-id="@product.Id" class="btn btn-danger">Sil</a>
+                        <a asp-action="Update" asp-route-id="@product.Id" class="btn btn-warning">Güncelle</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
